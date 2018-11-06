@@ -1,0 +1,144 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+            <div class="col-md-1"></div>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css">
+
+    <link rel="stylesheet" href="/assets/request.scss">
+
+  </head>
+  <body>
+
+    <div class="section-header">
+        <div class="row">
+            <div class="col-md-7 d-none d-md-block">
+                <div class="texts">
+                    <div class="text1">
+                        <h1>Buy Your Books</h1>
+                    </div>
+
+                    <div class="text2">
+                        <p class="h4">Request any book you want, we will find it and deliver it to you.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="form-transparent py-5">
+                    <p class="h1 text-center">Request A Book</p>
+                    <%= form_with(model: request, local: true) do |form| %>
+                    <div class="form-group">
+                        <%= form.text_field :name, id: :request_name , placeholder: "Your Full Name"%>
+                    </div>
+
+                    <div class="form-group">
+                            <%= form.text_field :phone, id: :request_phone, placeholder: "Your Valid Mobile Number" %>
+                    </div>
+
+                    <div class="form-group">
+                            <%= form.text_field :phone, id: :request_phone, placeholder: "Your Email Address" %>
+                    </div>
+
+                    <div class="form-group">
+                            <%= form.text_field :address, id: :request_address, placeholder: "Your Complete Address" %>
+                    </div>
+
+                    <div class="form-group">
+                            <%= form.text_field :bname, id: :request_bname, placeholder: "Name Of The Book" %>
+                    </div>
+                    <div class="form-group">
+                            <%= form.text_field :author, id: :request_author, placeholder: "Name Of The author" %>
+                    </div>
+                    <div class="form-group">
+                            <%= form.text_field :info, id: :request_info, placeholder: "Name of Publisher" %>
+                    </div>
+
+                    <div class="form-group">
+                            <%= form.text_field :info, placeholder: "Quantity" %>
+                    </div>
+                    <br />
+
+
+                    <div class="captcha">
+                        <%= form.submit "Submit Request", class: "button" %>
+                    </div>
+
+                    <% end %>
+            </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="section-work">
+        <div class="row">
+            <div class="col-md-3">
+                <div class="text-overlay">
+                    <img src="/assets/request.png" alt="A" class="img-fluid" style="height:150px; width:150px;">
+                    <div class="text">
+                        <h4>Request:</h4>
+                        <p class="h5">You add a request to find a book.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-3">
+                <div class="text-overlay">
+                    <img src="/assets/market.png" alt="B" class="img-fluid" style="height:150px; width:150px;">
+                    <div class="text">
+                        <h4>Search:</h4>
+                        <p class="h5">We get the request and start searching the market.</p>
+                    </div>
+                </div>
+            </div>
+
+                <div class="col-md-3">
+                    <div class="text-overlay">
+                        <img src="/assets/deliver.png" alt="C" class="img-fluid" style="height:150px; width:150px;">
+                        <div class="text">
+                            <h4>Deliver:</h4>
+                            <p class="h5">We find the book and deliver it to you.</p>
+                        </div>
+                    </div>
+                </div>
+
+                    <div class="col-md-3">
+                        <div class="text-overlay">
+                            <img src="/assets/satisfaction.png" alt="D" class="img-fluid" style="height:150px; width:150px;">
+                            <div class="text">
+                                <h4>Satisfaction:</h4>
+                                <p class="h5">You saved your time and got your book without any hasle.</p>
+                            </div>
+                        </div>
+                    </div>
+        </div>
+    </div>
+
+    <div class="section-text-work mt-4">
+        <h1 class="text-center large-text">
+            Free Delivery*
+        </h1>
+        <p class="text-center">*Conditions Apply</p>
+
+        <p class="h3 text-center my-5"><span class="h1">BuyYourBooks</span>
+        India&apos;s first Online Book Market, Where You can Request Your Books.
+        </p>
+    </div>
+
+
+
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    
+  </body>
+</html>

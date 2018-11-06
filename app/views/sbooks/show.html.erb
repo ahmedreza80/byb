@@ -1,0 +1,400 @@
+<head>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="/assets/lightbox.scss">
+  <link rel="stylesheet" href="/assets/sbooks.scss">
+
+</head>
+
+<body>
+
+  <!-- Section Title -->
+    <div class="container-fluid section-title ">
+          <div class="container py-4">
+            <h3 class="text-center"><%= @sbook.title %></h3>
+            <hr class="title-border">
+          </div>
+    </div>
+
+  <hr>
+
+  <div class="container-fluid">
+    <div class="container">
+      <div class="row">
+        <!--- Left Column -->
+
+        <div class="col col-md-7 col-sm-12 py-2">
+
+            <div class="left-sidebar">
+            <!-- Product Carousel 1  -->
+            <div class="product-carousel-1 tz-gallery">
+            <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
+      <div class="carousel-inner">
+        <div data-image="1" class="carousel-item active">
+          <img class="d-block w-100 hover-shadow" src="<%= @sbook.previewo %>" alt="First slide" onclick="openModal();currentSlide(1)">
+        </div>
+        <div data-image="2" class="carousel-item">
+          <img class="d-block w-100 hover-shadow" src="<%= @sbook.previewt %>" alt="Second slide" onclick="openModal();currentSlide(2)">
+        </div>
+        <div data-image="3" class="carousel-item">
+          <img class="d-block w-100 hover-shadow" src="<%= @sbook.previewth %>" alt="Third slide" onclick="openModal();currentSlide(3)">
+        </div>
+      </div>
+      <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="sr-only">Previous</span>
+      </a>
+      <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="sr-only">Next</span>
+      </a>
+    </div>
+    <div class="product-img">
+      <input data-image="1" type="radio" id="1" name="product-img" value="1" checked>
+      <label for="1"><span><img src="<%= @sbook.previewo %>"  alt=""></span></label>
+      <input data-image="2" type="radio" id="2" name="product-img" value="2">
+      <label for="2"><span><img src="<%= @sbook.previewt %>"  alt=""></span></label>
+      <input data-image="3" type="radio" id="3" name="product-img" value="3">
+      <label for="3"><span><img src="<%= @sbook.previewth %>"  alt=""></span></label>
+    </div>
+    </div>
+    </div>
+          </div>
+
+
+
+
+<!-- The Modal/Lightbox -->
+<div id="myModal" class="modal">
+  <span class="close cursor" onclick="closeModal()">&times;</span>
+  <div class="modal-content">
+
+    <div class="mySlides">
+      <div class="numbertext">1 / 3</div>
+      <img src="<%= @sbook.previewo %>" style="width:100%">
+    </div>
+
+    <div class="mySlides">
+      <div class="numbertext">2 / 3</div>
+      <img src="<%= @sbook.previewt %>" style="width:100%">
+    </div>
+
+    <div class="mySlides">
+      <div class="numbertext">3 / 3</div>
+      <img src="<%= @sbook.previewth %>" style="width:100%">
+    </div>
+
+
+    <!-- Next/previous controls -->
+    <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+    <a class="next" onclick="plusSlides(1)">&#10095;</a>
+  </div>
+</div>
+
+
+        <!--- Right Column -->
+        <div class="col col-md-5 col-sm-12 py-2">
+
+            <div class="price my-2">
+              <p class="h5 text-warning">Our Price: Rs <%= @sbook.price %></p>
+              <% if @sbook.offerprice? %>
+              <p class="h3 text-warning">Offer Price Rs <%= @sbook.offerprice %></p>
+
+            </div>
+            <hr>
+            <div class="saving my-2">
+              <div class="save">
+              <p class="text-center lead"><small>You Save Rs <%= @sbook.saving %></small><span class="badge badge-warning ml-1"><%= @sbook.off %>% OFF</span></p>
+              </div>
+            </div>
+            <% end %>
+            <hr>
+            <div class="delivery my-2 d-flex justify-content-between">
+              <p class="h3">Delivery</p>
+              <div class="pincode">
+              <input type="text" name="Enter Pincode" placeholder="  Pincode">
+              <button type="submit" class="btn">Submit</button>
+              </div>
+            </div>
+            <hr>
+            <div class="offers d-flex justify-content-center">
+
+                <div class="coupons-section ">
+                  <% if @sbook.offerprice? %>
+                  <p class="h4 text-warning">Offer Rs <%= @sbook.offerprice %>*</p>
+                  <p><small>*The Offer Price Is After Using Coupon</small><span class="coupon-block"><%= @sbook.coupon %></span></p>
+                </div>
+                <% else %>
+                <p><small>No coupon avaliable for <%= @sbook.title %></small></p>
+                <% end %>
+
+            </div>
+            <hr>
+            <!--- btn cart customize -->
+            <div class="button my-2">
+           
+              
+
+
+              <button type="button" class="btncust" data-toggle="modal" data-target="#exampleModalCenter"><i class="fa fa-cart-plus" aria-hidden="true"></i><p class="d-inline">Buy Now</p></button>
+
+              <!-- Modal -->
+      <div class="modal fade bd-example-modal-lg" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLongTitle">Customize It . The Way You Want to !!!!</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+                <div class="container-fluid">
+                  <div class="row">
+                    <div class="col col-md-8 col-sm-12">
+                      <div class="row">
+                        <div class="col col-md-6 col-sm-12">
+                          <div class="py-2">
+                          <label for="Polish">Wood</label>
+                          <select class="form-control form-control-sm">
+                        <option>1</option>
+                        <option>2</option>
+                        <option>3</option>
+                      </select>
+                        </div>
+
+                        <div class="py-4">
+                      <div class="form-group">
+                        <label for="exampleFormControlFile1">Choose a Photo or a Sketch</label>
+                        <input type="file" class="form-control-file" id="exampleFormControlFile1">
+                      </div>
+                    </div>
+                        </div>
+                        <div class="col col-md-6 col-sm-12">
+                          <div class="py-2">
+                          <label for="Polish">Polish</label>
+                          <select class="form-control form-control-sm">
+                        <option>1</option>
+                        <option>2</option>
+                        <option>3</option>
+                      </select>
+                        </div>
+
+                        <div class="py-4">
+                        <div class="form-group">
+                        <label for="exampleInputEmail1">Dimensions</label>
+                        <input type="dimensions" class="form-control" id="dimensions" aria-describedby="dimensions" placeholder="Dimensions">
+                      </div>
+                      </div>
+
+                        </div>
+                      </div>
+
+                      <div class="form-group">
+                      <label for="exampleFormControlTextarea1">Ask us any questions, or tell us about your inspiration</label>
+                      <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+                    </div>
+
+                    <div class="row">
+                      <div class="col col-md-6 col-sm-12">
+                        <div class="py-2">
+                          <div class="form-group">
+                          <label for="exampleFormControlInput1">Name*</label>
+                          <input type="name" class="form-control" id="exampleFormControlInput1" placeholder="Mr/Mrs/Ms">
+                        </div>
+                      </div>
+
+                      <div class="py-4">
+                    <div class="form-group">
+                      <label for="exampleFormControlInput1">Phone No*</label>
+                      <input type="phone" class="form-control" id="exampleFormControlInput1">
+                    </div>
+                  </div>
+                      </div>
+                      <div class="col col-md-6 col-sm-12">
+                        <div class="py-2">
+                          <div class="form-group">
+                          <label for="exampleFormControlInput1">Email address*</label>
+                          <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com">
+                        </div>
+                      </div>
+
+                      <div class="py-4">
+                      <div class="form-group">
+                        <label for="exampleFormControlInput1">City*</label>
+                        <input type="phone" class="form-control" id="exampleFormControlInput1">
+                    </div>
+                    </div>
+
+                      </div>
+                    </div>
+
+                    </div>
+
+                    <div class="d-none d-md-block col col-md-4">
+
+                    <img src="<%= @sbook.previewo %>" alt="" class="img-fluid" height="1000px">
+                      <div class="tag-head py-4 mt-5">
+                        <h3 class="lead text-warning">Design Your Furniture</h3>
+                        <p class="lead">Share your design idea & our experts will get back with the best possible custom made suggestions</p>
+                      </div>
+
+                    </div>
+                  </div>
+                </div>
+
+
+
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn" data-dismiss="modal">Close</button>
+              <button type="button" class="btn ">Submit</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+
+
+
+            </div>
+
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- Product Description -->
+
+  <div class="container py-4">
+    <hr>
+    <div class="row">
+      <div class="col col-md-4 col-sm-12 vl">
+      <h2 class="h6">Details</h2>
+      <br>
+      <div class="brand py-2">
+        <p class="d-inline"><strong>Author : </strong></p><p class="  d-inline tex-warning"> <%= @sbook.author %></p>
+      </div>
+      <div class="Dimensions py-2">
+        <p class="d-inline"><strong>Publication : </strong></p><p class=" text-center d-inline tex-warning"> <%= @sbook.publication %></p>
+      </div>
+      </div>
+
+
+
+    <div class="col col-md-4 col-sm-12 Overview vl">
+        <h2 class="h3">Overview</h2>
+          <p class="text-justify"><small><%= @sbook.description %></small></p>
+
+    </div>
+      <!-- Question -->
+    <div class="d-none d-md-block col col-md-4">
+
+      <div id="accordion">
+    <div class="card">
+      <div class="card-header" id="headingOne">
+        <h5 class="mb-0">
+          <button class="btn" data-toggle="collapse" data-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
+            Delivery And Setup
+          </button>
+        </h5>
+      </div>
+
+      <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordion">
+        <div class="card-body">
+          Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+        </div>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-header" id="headingTwo">
+        <h5 class="mb-0">
+          <button class="btn" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+            Care Instructions
+          </button>
+        </h5>
+      </div>
+
+      <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordion">
+        <div class="card-body">
+          Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+        </div>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-header" id="headingThree">
+        <h5 class="mb-0">
+          <button class="btn collapsed" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+            Returns
+          </button>
+        </h5>
+      </div>
+      <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordion">
+        <div class="card-body">
+          Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+        </div>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-header" id="headingFour">
+        <h5 class="mb-0">
+          <button class="btn collapsed" data-toggle="collapse" data-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
+            Warranty Terms
+          </button>
+        </h5>
+      </div>
+      <div id="collapseFour" class="collapse" aria-labelledby="headingFour" data-parent="#accordion">
+        <div class="card-body">
+          Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+        </div>
+      </div>
+    </div>
+  </div>
+    </div>
+
+  </div>
+  </div>
+
+  <!-- Related -->
+
+  <div class="container-fluid section-title ">
+        <div class="container py-4">
+          <h3 class="text-center">Related Product</h3>
+          <hr class="title-border">
+
+          <div class="container-fluid bg-cover">
+            <div class="container product-section-cover">
+              <%= render partial: 'sbooks/sbook_related' %>
+          </div>
+        </div>
+  </div>
+
+
+
+  <script>
+  $(document).ready(function(){
+    $('.product-img input').click(function(){
+      var productImages = $(this).attr('data-image');
+      $('.active').removeClass('active');
+      $('.carousel-item[data-image = ' + productImages + ']').addClass('active');
+      $(this).addClass('active');
+    })
+  }),
+
+  $('.carousel').carousel({
+  interval: 0
+})
+</script>
+
+<script type="text/javascript" src="/assets/lightbox.js">
+
+</script>
+
+
+
+
+
+
+
+</body>

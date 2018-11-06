@@ -1,0 +1,87 @@
+<%= form_with(model: sbook, local: true) do |form| %>
+  <% if sbook.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(sbook.errors.count, "error") %> prohibited this sbook from being saved:</h2>
+
+      <ul>
+      <% sbook.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :title %>
+    <%= form.text_field :title, id: :sbook_title %>
+  </div>
+
+  <div class="field">
+    <%= form.label :description %>
+    <%= form.text_field :description, id: :sbook_description %>
+  </div>
+
+  <div class="field">
+    <%= form.label :sdescription %>
+    <%= form.text_field :sdescription, id: :sbook_sdescription %>
+  </div>
+
+  <div class="field">
+    <%= form.label :image %>
+    <%= form.file_field :image, id: :sbook_image %>
+  </div>
+
+  <div class="field">
+    <%= form.label :previewo %>
+    <%= form.file_field :previewo, id: :sbook_previewo %>
+  </div>
+
+  <div class="field">
+    <%= form.label :previewt %>
+    <%= form.file_field :previewt, id: :sbook_previewt %>
+  </div>
+
+  <div class="field">
+    <%= form.label :previewth %>
+    <%= form.file_field :previewth, id: :sbook_previewth %>
+  </div>
+
+  <div class="field">
+    <%= form.label :price %>
+    <%= form.text_field :price, id: :sbook_price %>
+  </div>
+
+  <div class="field">
+    <%= form.label :offerprice %>
+    <%= form.text_field :offerprice, id: :sbook_offerprice %>
+  </div>
+
+    <div class="field">
+    <%= form.label :saving %>
+    <%= form.text_field :saving %>
+  </div>
+
+  <div class="field">
+    <%= form.label :off %>
+    <%= form.text_field :off %>
+  </div>
+
+  <div class="field">
+    <%= form.label :coupon %>
+    <%= form.text_field :coupon, id: :sbook_coupon %>
+  </div>
+
+  <div class="field">
+    <%= form.label :author %>
+    <%= form.text_field :author, id: :sbook_author %>
+  </div>
+
+  <div class="field">
+    <%= form.label :publication %>
+    <%= form.text_field :publication, id: :sbook_publication %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

@@ -1,0 +1,29 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  title: 
+  description: 
+  sdescription: 
+  image: 
+  previewo: 
+  previewt: 
+  previewth: 
+  price: 
+  offerprice: 
+  coupon: 
+  author: 
+  publication: MyString
+
+two:
+  title: 
+  description: 
+  sdescription: 
+  image: 
+  previewo: 
+  previewt: 
+  previewth: 
+  price: 
+  offerprice: 
+  coupon: 
+  author: 
+  publication: MyString
