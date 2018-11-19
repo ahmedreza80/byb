@@ -55,10 +55,11 @@
                                 <div class="header-cart-menu d-flex align-items-center ml-auto">
                                     <!-- Cart Area -->
                                     <div class="cart">
-                                        <a href="#" id="header-cart-btn" target="_blank"><span class="cart_quantity"><%= link_to pluralize(current_cart.items_count, ''), cart_path %></span> <i class="ti-bag"></i> Your Bag</a>
+                                        <span class="cart_quantity"><%= link_to pluralize(current_cart.items_count, ''), cart_path %></span> <i class="ti-bag" style="padding-left: 15px;"></i> Your Bag
                                         <!-- Cart List Area Start -->
                                        
                                     </div>
+                                    <a href="/search">Search</a>
                                     <div class="header-right-side-menu ml-15">
                                         <a href="#" id="sideMenuBtn"><i class="ti-menu" aria-hidden="true"></i></a>
                                     </div>

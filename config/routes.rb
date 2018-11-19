@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   resources :requests
   get 'welcome/index'
   root 'welcome#index'
+  get 'search', to: 'search#search'
 
   resources :gbooks
   resources :cbooks
